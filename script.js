@@ -1,3 +1,4 @@
+// countdown
 simplyCountdown(".countdown", {
   year: 2025, // required
   month: 6, // required
@@ -10,4 +11,17 @@ simplyCountdown(".countdown", {
     minutes: { singular: "menit", plural: "menit" },
     seconds: { singular: "detik", plural: "detik" },
   },
+});
+
+// bug overflow
+const hamburger = document.querySelector(".navbar-toggler");
+const stickyTop = document.querySelector(".sticky-top");
+const close = document.querySelector(".offcanvas");
+
+hamburger.addEventListener("click", function () {
+  stickyTop.style.overflow = "visible";
+});
+
+close.addEventListener("hidden.bs.offcanvas", function () {
+  stickyTop.style.overflow = "hidden";
 });
