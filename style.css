@@ -190,10 +190,13 @@ body {
 }
 
 .story,
-.gallery,
 .rsvp {
   padding-top: 10rem;
   padding-bottom: 8rem;
+}
+
+.gallery {
+  padding-top: 10rem;
 }
 
 .story span,
@@ -337,6 +340,17 @@ body {
   background-color: white;
   color: var(--pink);
   border: none;
+}
+
+footer {
+  padding: 3rem;
+  background-color: var(--pink);
+  color: white;
+}
+
+footer a {
+  color: var(--bg);
+  text-decoration: none;
 }
 
 /* responsiv */
