@@ -48,9 +48,6 @@ function enableScroll() {
 if (!localStorage.getItem("opened")) {
   disableScroll();
 }
-
-// disableScroll();
-
 // form
 window.addEventListener("load", function () {
   const form = document.getElementById("my-form");
