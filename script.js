@@ -26,8 +26,12 @@ close.addEventListener("hidden.bs.offcanvas", function () {
   stickyTop.style.overflow = "hidden";
 });
 
-// fitur scroll disable
+// fitur scroll disable & sound
 const rootElement = document.querySelector(":root");
+const audioIconWrapper = document.querySelector(".audio-icon-wrapper");
+const audioIcon = document.querySelector(".audio-icon-wrapper i");
+const sound = document.querySelector("#sound");
+let isPlaying = false;
 function disableScroll() {
   scrollTop = window.scrollY || document.documentElement.scrollTop;
   scrollLeft = window.scrollX || document.documentElement.scrollLeft;
@@ -42,12 +46,35 @@ function disableScroll() {
 function enableScroll() {
   window.onscroll = function () {};
   rootElement.style.scrollBehavior = "smooth";
-  localStorage.setItem("opened", "true");
+  // localStorage.setItem("opened", "true");
+  playAudio();
 }
 
-if (!localStorage.getItem("opened")) {
-  disableScroll();
+function playAudio() {
+  sound.volume = 0.1;
+  audioIconWrapper.style.display = "flex";
+  sound.play();
+  isPlaying = true;
 }
+
+audioIconWrapper.onclick = function () {
+  if (isPlaying) {
+    sound.pause();
+    audioIcon.classList.remove("bi-disc");
+    audioIcon.classList.add("bi-pause-circle");
+  } else {
+    sound.play();
+    audioIcon.classList.add("bi-disc");
+    audioIcon.classList.remove("bi-pause-circle");
+  }
+
+  isPlaying = !isPlaying;
+};
+
+// if (!localStorage.getItem("opened")) {
+// }
+disableScroll();
+
 // form
 window.addEventListener("load", function () {
   const form = document.getElementById("my-form");
