@@ -90,3 +90,12 @@ window.addEventListener("load", function () {
     });
   });
 });
+
+// query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const nama = urlParams.get("nama") || "";
+const pronoun = urlParams.get("p") || "Bpk/Ibu/Saudara/i";
+const namaContainer = document.querySelector(".hero h4 span");
+namaContainer.innerText = `${pronoun} ${nama}`;
+
+document.querySelector("#nama").value = nama;
